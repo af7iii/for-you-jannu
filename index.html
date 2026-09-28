@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For JAANNN</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#07090d;
+    --cream:#eee9df;
+    --muted:#92918c;
+    --gold:#c9b48a;
+    --line:rgba(238,233,223,.14);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--cream);
+    font-family:"Manrope",sans-serif;
+    overflow-x:hidden;
+}
+
+/* grain */
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:999;
+    opacity:.045;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* stars */
+
+#stars{
+    position:fixed;
+    inset:0;
+    z-index:-3;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    border-radius:50%;
+    background:white;
+    opacity:.15;
+    animation:twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{
+        opacity:.08;
+        transform:scale(.7);
+    }
+    50%{
+        opacity:.75;
+        transform:scale(1.4);
+    }
+}
+
+.ambient{
+    position:fixed;
+    width:700px;
+    height:700px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(121,130,165,.11),transparent 68%);
+    top:-350px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:-2;
+}
+
+/* intro */
+
+.intro{
+    position:fixed;
+    inset:0;
+    z-index:100;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:
+        radial-gradient(circle at 50% 40%,rgba(190,174,140,.09),transparent 32%),
+        #07090d;
+    transition:
+        opacity 1.2s cubic-bezier(.77,0,.18,1),
+        transform 1.2s cubic-bezier(.77,0,.18,1);
+}
+
+body.opened .intro{
+    opacity:0;
+    transform:translateY(-100%);
+    pointer-events:none;
+}
+
+.intro-inner{
+    width:min(90%,700px);
+}
+
+.eyebrow{
+    font-size:9px;
+    letter-spacing:5px;
+    color:var(--muted);
+    text-transform:uppercase;
+    margin-bottom:30px;
+}
+
+.intro h1{
+    font-family:"Bodoni Moda",serif;
+    font-size:clamp(65px,14vw,145px);
+    font-weight:400;
+    line-height:.9;
+    letter-spacing:-6px;
+}
+
+.intro-sub{
+    margin-top:28px;
+    color:#aaa8a2;
+    font-family:"Cormorant Garamond",serif;
+    font-size:21px;
+    font-style:italic;
+}
+
+.enter{
+    margin-top:52px;
+    padding:15px 28px;
+    border:1px solid var(--line);
+    border-radius:100px;
+    background:transparent;
+    color:var(--cream);
+    font-size:9px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:.4s ease;
+}
+
+.enter:hover{
+    color:var(--gold);
+    border-color:var(--gold);
+    transform:translateY(-3px);
+}
+
+/* sections */
+
+section{
+    min-height:100vh;
+    padding:100px 7vw;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.content{
+    width:100%;
+    max-width:1000px;
+}
+
+.center{
+    text-align:center;
+}
+
+/* hero */
+
+.hero{
+    text-align:center;
+}
+
+.moon{
+    width:160px;
+    height:160px;
+    margin:0 auto 60px;
+    border-radius:50%;
+    background:
+        radial-gradient(circle at 35% 30%,
+        #fffef7,
+        #d8d5ca 40%,
+        #98968e 78%,
+        #66655f);
+    box-shadow:
+        0 0 60px rgba(240,235,213,.12),
+        0 0 140px rgba(202,188,155,.07);
+    position:relative;
+    animation:float 7s ease-in-out infinite;
+}
+
+.moon::after{
+    content:"";
+    position:absolute;
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    background:var(--bg);
+    left:45px;
+    top:-17px;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-13px)}
+}
+
+.hero-small{
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:5px;
+    font-size:9px;
+    margin-bottom:22px;
+}
+
+.hero h2{
+    font-family:"Bodoni Moda",serif;
+    font-size:clamp(48px,8vw,100px);
+    font-weight:400;
+    line-height:.95;
+    letter-spacing:-3px;
+}
+
+.hero h2 em{
+    font-family:"Cormorant Garamond",serif;
+    color:var(--gold);
+}
+
+.scroll{
+    position:absolute;
+    bottom:35px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#686864;
+    font-size:8px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+}
+
+.scroll::after{
+    content:"";
+    display:block;
+    width:1px;
+    height:42px;
+    margin:14px auto 0;
+    background:linear-gradient(var(--gold),transparent);
+}
+
+/* typography */
+
+.number{
+    color:var(--gold);
+    font-size:9px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:27px;
+}
+
+.title{
+    font-family:"Bodoni Moda",serif;
+    font-size:clamp(45px,7vw,88px);
+    font-weight:400;
+    line-height:1;
+    letter-spacing:-2px;
+}
+
+.title i{
+    font-family:"Cormorant Garamond",serif;
+    color:var(--gold);
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:1s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* letter */
+
+.letter{
+    margin-top:65px;
+    padding:55px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    display:grid;
+    grid-template-columns:90px 1fr;
+}
+
+.letter-number{
+    font-family:"Cormorant Garamond",serif;
+    color:var(--gold);
+    font-size:24px;
+}
+
+.letter-text{
+    max-width:730px;
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(21px,3vw,29px);
+    line-height:1.48;
+    color:#c4c1ba;
+}
+
+.letter-text strong{
+    color:var(--cream);
+    font-weight:500;
+}
+
+/* quote */
+
+.quote{
+    text-align:center;
+    max-width:900px;
+}
+
+.quote-mark{
+    color:var(--gold);
+    font-family:"Bodoni Moda",serif;
+    font-size:70px;
+    line-height:.4;
+    margin-bottom:40px;
+}
+
+.quote-text{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(35px,6vw,72px);
+    line-height:1.05;
+}
+
+.quote-text em{
+    color:var(--gold);
+}
+
+/* promise */
+
+.promise{
+    text-align:center;
+}
+
+.promise-text{
+    margin:40px auto 0;
+    max-width:650px;
+    color:#999791;
+    font-family:"Cormorant Garamond",serif;
+    font-size:23px;
+    line-height:1.5;
+}
+
+/* ===============================
+   YES / NO SECTION
+================================ */
+
+.question{
+    text-align:center;
+    background:
+        radial-gradient(circle at 50% 50%,
+        rgba(190,168,128,.07),
+        transparent 35%);
+}
+
+.question-box{
+    width:min(900px,100%);
+}
+
+.question h3{
+    font-family:"Bodoni Moda",serif;
+    font-size:clamp(52px,9vw,105px);
+    font-weight:400;
+    line-height:.9;
+    letter-spacing:-3px;
+}
+
+.question h3 em{
+    font-family:"Cormorant Garamond",serif;
+    color:var(--gold);
+}
+
+.question-sub{
+    margin:35px auto 50px;
+    max-width:550px;
+    color:#92908a;
+    font-family:"Cormorant Garamond",serif;
+    font-size:23px;
+}
+
+.buttons{
+    position:relative;
+    min-height:70px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:14px;
+}
+
+.btn{
+    padding:17px 32px;
+    border-radius:100px;
+    font-family:"Manrope",sans-serif;
+    font-size:9px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:
+        transform .35s ease,
+        opacity .35s ease,
+        background .35s ease;
+}
+
+.yes{
+    background:var(--cream);
+    color:#111;
+    border:1px solid var(--cream);
+    z-index:5;
+}
+
+.yes:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 45px rgba(238,233,223,.12);
+}
+
+.no{
+    background:transparent;
+    color:#999791;
+    border:1px solid var(--line);
+    position:relative;
+    z-index:10;
+}
+
+/* final response */
+
+.response{
+    margin-top:35px;
+    min-height:32px;
+    color:var(--gold);
+    font-family:"Cormorant Garamond",serif;
+    font-size:22px;
+    font-style:italic;
+    transition:.4s ease;
+}
+
+/* forgiveness reveal */
+
+.forgiven{
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    transition:
+        max-height 1s ease,
+        opacity 1s ease,
+        margin 1s ease;
+}
+
+.forgiven.show{
+    max-height:500px;
+    opacity:1;
+    margin-top:55px;
+}
+
+.forgiven-line{
+    width:1px;
+    height:60px;
+    background:linear-gradient(transparent,var(--gold),transparent);
+    margin:0 auto 30px;
+}
+
+.forgiven h4{
+    font-family:"Bodoni Moda",serif;
+    font-size:clamp(40px,7vw,72px);
+    font-weight:400;
+}
+
+.forgiven p{
+    margin-top:20px;
+    color:#8f8d87;
+    font-family:"Cormorant Garamond",serif;
+    font-size:21px;
+    font-style:italic;
+}
+
+/* final */
+
+.final{
+    min-height:90vh;
+    flex-direction:column;
+    text-align:center;
+    background:
+        radial-gradient(circle at 50% 55%,
+        rgba(194,169,125,.07),
+        transparent 35%);
+}
+
+.final-line{
+    width:1px;
+    height:90px;
+    background:linear-gradient(
+        transparent,
+        var(--gold),
+        transparent);
+    margin-bottom:45px;
+}
+
+.final h4{
+    font-family:"Bodoni Moda",serif;
+    font-size:clamp(48px,8vw,95px);
+    font-weight:400;
+    line-height:.92;
+}
+
+.final h4 em{
+    font-family:"Cormorant Garamond",serif;
+    color:var(--gold);
+}
+
+.final p{
+    margin-top:30px;
+    color:#898781;
+    font-family:"Cormorant Garamond",serif;
+    font-size:22px;
+    font-style:italic;
+}
+
+.signature{
+    margin-top:55px;
+    color:var(--gold);
+    font-family:"Cormorant Garamond",serif;
+    font-size:27px;
+}
+
+.secret{
+    margin-top:35px;
+    background:none;
+    border:none;
+    color:#50504d;
+    font-size:8px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    cursor:pointer;
+}
+
+.secret:hover{
+    color:var(--gold);
+}
+
+.secret-text{
+    opacity:0;
+    max-height:0;
+    overflow:hidden;
+    transition:.7s ease;
+    color:#8e8c86;
+    font-family:"Cormorant Garamond",serif;
+    font-size:19px;
+}
+
+.secret-text.show{
+    opacity:1;
+    max-height:100px;
+    margin-top:18px;
+}
+
+/* mobile */
+
+@media(max-width:650px){
+
+    section{
+        padding:80px 24px;
+    }
+
+    .moon{
+        width:130px;
+        height:130px;
+    }
+
+    .moon::after{
+        width:130px;
+        height:130px;
+        left:37px;
+    }
+
+    .letter{
+        grid-template-columns:45px 1fr;
+        padding:40px 0;
+    }
+
+    .letter-text{
+        font-size:21px;
+    }
+
+    .question h3{
+        letter-spacing:-1px;
+    }
+
+    .buttons{
+        min-height:130px;
+    }
+
+    .btn{
+        width:140px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+<div class="ambient"></div>
+
+
+<!-- OPENING -->
+
+<div class="intro">
+
+    <div class="intro-inner">
+
+        <div class="eyebrow">
+            a private little page
+        </div>
+
+        <h1>JAANNN</h1>
+
+        <div class="intro-sub">
+            because a normal sorry didn't feel enough.
+        </div>
+
+        <button class="enter" id="enter">
+            open this
+        </button>
+
+    </div>
+
+</div>
+
+
+<main>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div>
+
+        <div class="moon"></div>
+
+        <div class="hero-small">
+            made for one person
+        </div>
+
+        <h2>
+            for my <em>love of my life.</em>
+        </h2>
+
+    </div>
+
+    <div class="scroll">
+        scroll slowly
+    </div>
+
+</section>
+
+
+<!-- LETTER -->
+
+<section>
+
+    <div class="content">
+
+        <div class="number reveal">
+            01 — what I actually wanted to say
+        </div>
+
+        <div class="title reveal">
+            I'm sorry,<br>
+            <i>JAANNN.</i>
+        </div>
+
+        <div class="letter reveal">
+
+            <div class="letter-number">
+                01
+            </div>
+
+            <div class="letter-text">
+
+                I know you're mad at me, and honestly,
+                I don't even blame you.
+
+                I just want you to know that I'm genuinely sorry
+                for whatever I did that hurt you.
+
+                I never want my words, my attitude, or my mistakes
+                to make you feel like you're not valued,
+                because you mean way more to me than I can properly
+                put into words.
+
+                You're not just someone I love,
+                you're <strong>the love of my life</strong>,
+                and the last thing I want is to see you upset because of me.
+
+                So please, <strong>thoda raag komao na?</strong>
+
+                I'll try to be better, not just say it.
+
+                Now please give your jaan a little smile?
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUOTE -->
+
+<section class="center">
+
+    <div class="quote reveal">
+
+        <div class="quote-mark">
+            “
+        </div>
+
+        <div class="quote-text">
+            I don't want my apology<br>
+            to be something you simply
+            <em>read.</em>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROMISE -->
+
+<section class="center">
+
+    <div class="promise">
+
+        <div class="number reveal">
+            02 — no grand promises
+        </div>
+
+        <div class="title reveal">
+            I'll let my<br>
+            <i>actions</i> say it.
+        </div>
+
+        <div class="promise-text reveal">
+
+            I don't want to fix everything with one pretty paragraph.
+            I just want to become a little better at understanding you,
+            respecting your feelings, and making sure you feel loved
+            instead of hurt.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- YES / NO -->
+
+<section class="question">
+
+    <div class="question-box">
+
+        <div class="number">
+            03 — one tiny question
+        </div>
+
+        <h3>
+            can your jaan<br>
+            be <em>forgiven?</em>
+        </h3>
+
+        <div class="question-sub">
+            Be honest, JAANNN…
+            although I already have a tiny feeling
+            about which button you're supposed to press. :)
+        </div>
+
+
+        <div class="buttons" id="buttons">
+
+            <button class="btn yes" id="yes">
+                yes, jaan
+            </button>
+
+            <button class="btn no" id="no">
+                no
+            </button>
+
+        </div>
+
+
+        <div class="response" id="response"></div>
+
+
+        <!-- AFTER YES -->
+
+        <div class="forgiven" id="forgiven">
+
+            <div class="forgiven-line"></div>
+
+            <h4>
+                I knew you'd<br>
+                <span style="color:var(--gold);font-family:'Cormorant Garamond',serif;">
+                    forgive me.
+                </span>
+            </h4>
+
+            <p>
+                now give your jaan that little smile, okay?
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section class="final">
+
+    <div class="final-line"></div>
+
+    <h4>
+        thank you,<br>
+        <em>JAANNN.</em>
+    </h4>
+
+    <p>
+        I'll let my actions say the rest.
+    </p>
+
+    <div class="signature">
+        — your jaan
+    </div>
+
+    <button class="secret" id="secret">
+        one last thing
+    </button>
+
+    <div class="secret-text" id="secretText">
+        If this made you smile even a little,
+        then this page was worth making.
+    </div>
+
+</section>
+
+
+</main>
+
+
+<script>
+
+/* =========================
+   STARS
+========================= */
+
+const stars=document.getElementById("stars");
+
+for(let i=0;i<120;i++){
+
+    const star=document.createElement("span");
+
+    star.className="star";
+
+    star.style.left=Math.random()*100+"%";
+    star.style.top=Math.random()*100+"%";
+
+    const size=Math.random()*2+.5;
+
+    star.style.width=size+"px";
+    star.style.height=size+"px";
+
+    star.style.animationDelay=Math.random()*5+"s";
+    star.style.animationDuration=(3+Math.random()*5)+"s";
+
+    stars.appendChild(star);
+}
+
+
+/* =========================
+   ENTER
+========================= */
+
+document.getElementById("enter").onclick=()=>{
+
+    document.body.classList.add("opened");
+
+    setTimeout(()=>{
+
+        document.querySelector(".hero").scrollIntoView({
+            behavior:"smooth"
+        });
+
+    },900);
+
+};
+
+
+/* =========================
+   REVEALS
+========================= */
+
+const observer=new IntersectionObserver(
+    entries=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    },
+    {
+        threshold:.15
+    }
+);
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(el=>observer.observe(el));
+
+
+/* =========================
+   THE NO BUTTON 😭
+========================= */
+
+const no=document.getElementById("no");
+const yes=document.getElementById("yes");
+const response=document.getElementById("response");
+const buttons=document.getElementById("buttons");
+const forgiven=document.getElementById("forgiven");
+
+let noClicks=0;
+
+const messages=[
+    "hmm… try again 😭",
+    "JAANNN, that's not the button 😭",
+    "are you sure about that? 👀",
+    "your jaan is politely disagreeing.",
+    "okayyy you really chose violence 😭",
+    "I still believe in that YES button."
+];
+
+function moveNo(){
+
+    noClicks++;
+
+    response.textContent=
+        messages[Math.min(noClicks-1,messages.length-1)];
+
+    const area=buttons.getBoundingClientRect();
+
+    const maxX=Math.max(80,area.width/2-70);
+    const maxY=65;
+
+    const x=(Math.random()*2-1)*maxX;
+    const y=(Math.random()*2-1)*maxY;
+
+    no.style.position="absolute";
+    no.style.left="50%";
+    no.style.top="50%";
+
+    no.style.transform=
+        `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+
+    /* after enough attempts, make YES more tempting */
+
+    if(noClicks>=3){
+
+        yes.style.transform="scale(1.08)";
+
+    }
+
+    if(noClicks>=5){
+
+        no.style.opacity=".65";
+        no.textContent="still no?";
+
+    }
+
+    if(noClicks>=7){
+
+        no.style.opacity=".3";
+        no.style.pointerEvents="none";
+
+        response.textContent=
+            "okay… the universe has spoken. 😭🤍";
+
+    }
+
+}
+
+
+/* desktop */
+
+no.addEventListener("mouseenter",()=>{
+
+    if(window.innerWidth>650){
+        moveNo();
+    }
+
+});
+
+
+/* mobile */
+
+no.addEventListener("click",()=>{
+
+    if(window.innerWidth<=650){
+        moveNo();
+    }
+
+});
+
+
+/* =========================
+   YES BUTTON
+========================= */
+
+yes.onclick=()=>{
+
+    no.style.display="none";
+
+    yes.style.transform="scale(1.08)";
+
+    response.textContent=
+        "I knew you'd say yes. 🤍";
+
+    forgiven.classList.add("show");
+
+    setTimeout(()=>{
+
+        forgiven.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    },500);
+
+};
+
+
+/* =========================
+   SECRET
+========================= */
+
+const secret=document.getElementById("secret");
+const secretText=document.getElementById("secretText");
+
+secret.onclick=()=>{
+
+    secretText.classList.toggle("show");
+
+    secret.textContent=
+        secretText.classList.contains("show")
+        ? "you found it"
+        : "one last thing";
+
+};
+
+
+/* =========================
+   SOFT CURSOR LIGHT
+========================= */
+
+const light=document.createElement("div");
+
+light.style.position="fixed";
+light.style.width="260px";
+light.style.height="260px";
+light.style.borderRadius="50%";
+light.style.pointerEvents="none";
+light.style.zIndex="-1";
+
+light.style.background=
+    "radial-gradient(circle,rgba(205,190,153,.045),transparent 70%)";
+
+light.style.transform="translate(-50%,-50%)";
+
+document.body.appendChild(light);
+
+document.addEventListener("mousemove",e=>{
+
+    light.style.left=e.clientX+"px";
+    light.style.top=e.clientY+"px";
+
+});
+
+</script>
+
+</body>
+</html>
